@@ -22,8 +22,27 @@ module FunWithStrings
     end
     return output
   end
+  
   def anagram_groups
-    # your code here
+    puts "self: " + self
+    
+    # seperate string into arrary
+    input = self.dup.strip.split(" ")
+    
+    # define variables
+    test = Hash.new
+    output = []
+    
+    if input == ["", nil]; return [""]; end
+    
+    # Creat hash test with words as key and alpha sorted letters as value
+    input.each do |word| 
+      word.gsub!(/[^a-zA-Z]/, "") # remove all but letters
+      sorted_word = word.chars.sort.join
+      test[sorted_word] = test[sorted_word] || [] # seperate into chars-sort-rejoin into word
+      test[sorted_word] << word
+    end    
+    return test.values    
   end
 end
 
@@ -34,4 +53,4 @@ class String
   include FunWithStrings
 end
 
-puts 'A man, a plan, a canal -- Panama!'.count_words
+puts "scream c!ars for fo'ur scar creams".anagram_groups
