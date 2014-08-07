@@ -1,5 +1,4 @@
-#test ing
-#testing for HW1 Branch
+# Testing HW1 Merge
 module FunWithStrings
   def palindrome?
     p = self.gsub(/[^a-zA-Z]/, "")
