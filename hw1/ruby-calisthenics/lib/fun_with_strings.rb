@@ -5,13 +5,11 @@ module FunWithStrings
     p.downcase == p.downcase.reverse
   end
   def count_words
-    
-    input = self.downcase.strip.split(" ")
-    
+    input = self.downcase.strip.split(" ")    
     input.each do |word| 
       word.gsub!(/[^a-zA-Z]/, "")
     end
-    puts input.inspect
+    input = input - ["", nil]
     test = input.dup
     input.uniq!
     output = Hash.new
@@ -22,7 +20,6 @@ module FunWithStrings
       end        
       output[word] = count
     end
-    #puts output
     return output
   end
   def anagram_groups
@@ -37,4 +34,4 @@ class String
   include FunWithStrings
 end
 
-puts 'to do or not to do, eat me  me'.count_words
+puts 'A man, a plan, a canal -- Panama!'.count_words
