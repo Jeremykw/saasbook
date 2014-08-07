@@ -7,7 +7,11 @@ module FunWithStrings
   def count_words
     
     input = self.downcase.strip.split(" ")
-    #input.each do { |word| word.gsub!(/[^a-zA-Z]/, "")}
+    
+    input.each do |word| 
+      word.gsub!(/[^a-zA-Z]/, "")
+    end
+    puts input.inspect
     test = input.dup
     input.uniq!
     output = Hash.new
@@ -33,3 +37,4 @@ class String
   include FunWithStrings
 end
 
+puts 'to do or not to do, eat me  me'.count_words
