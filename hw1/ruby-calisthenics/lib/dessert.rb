@@ -24,7 +24,8 @@ class JellyBean < Dessert
   
   attr_accessor :name, :calories
   
-  def healthy?
-    unless @flavor == "licorice" return 1 == 1
+  def delicious?
+    return 1 == 1 unless @flavor == 'licorice' 
+    return 1 != 1
   end
 end
