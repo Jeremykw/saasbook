@@ -7,17 +7,22 @@ class RockPaperScissors
     p1s = player1[1]
     p2s = player2[1]
     
-=begin
+
     # Validate input
-    if p1s != 'R' || p1s != 'P' || p1s != 'S'
-      # raise RockPaperScissors::NoSuchStrategyError 'Strategy must be one of R,P,S'
-      puts "one"
-    elsif p1s != 'R' || p1s != 'P' || p1s != 'S'
-      #raise RockPaperScissors::NoSuchStrategyError 'Strategy must be one of R,P,S'
+    unless p1s == 'R' || p1s == 'P' || p1s == 'S'
+      begin
+        raise NoSuchStrategyError, 'Strategy must be one of R,P,S'
+        puts "one"
+      end
+    end
+    unless p2s == 'R' || p2s == 'P' || p2s == 'S'
+      begin
+        raise NoSuchStrategyError, 'Strategy must be one of R,P,S'
+        puts "one"
+      end
       puts "2"
     end
-=end
-    
+
     if p1s == 'R' # If player1 plays R
       if p2s == 'R'
         return player1
