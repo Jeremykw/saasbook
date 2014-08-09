@@ -51,8 +51,27 @@ class RockPaperScissors
     
   end
 
-  def self.tournament_winner(tournament)
-    # YOUR CODE HERE
+  def self.tournament_winner(tournament)    
+    @tourney = tournament    
+    def self.base_case(game)
+      tourney = game
+      if tourney.flatten.length == 16
+        tourney[0][0] = RockPaperScissors.winner(tourney[0][0][0], tourney[0][0][1])
+        tourney[0][1] = RockPaperScissors.winner(tourney[0][1][0], tourney[0][1][1])    
+        tourney[1][0] = RockPaperScissors.winner(tourney[1][0][0], tourney[1][0][1])
+        tourney[1][1] = RockPaperScissors.winner(tourney[1][1][0], tourney[1][1][1])
+        self.base_case(tourney)
+      elsif tourney.flatten.length == 8
+        tourney[0] = RockPaperScissors.winner(tourney[0][0], tourney[0][1])
+        tourney[1] = RockPaperScissors.winner(tourney[1][0], tourney[1][1])
+        self.base_case(tourney)
+      elsif tourney.flatten.length == 4
+        return tourney = RockPaperScissors.winner(tourney[0], tourney[1])        
+      end      
+    end
+    self.base_case(@tourney)
+    
   end
+  
 
 end
