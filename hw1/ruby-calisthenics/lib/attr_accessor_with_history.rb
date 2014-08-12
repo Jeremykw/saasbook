@@ -4,13 +4,18 @@ class Class
     attr_reader attr_name # create the attribute's getter
     attr_reader attr_name+"_history" # create bar_history getter
 
-    puts value
-    
-    class_eval %Q{
+      class_eval %Q{
+        
+        def #{attr_name}= (val)
+         @#{attr_name}_history ||= [nil]
+         @#{attr_name}_history[1] = val
+         @#{attr_name} = val
+         
+          
+        end
       
-    }
+      }
+
   end
 end
-
-
 
